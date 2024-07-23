@@ -1,6 +1,6 @@
 /*global Enigma _config AmazonCognitoIdentity AWSCognito*/
 
-var Enigma = window.Enigma || {};
+let Enigma = window.Enigma || {};
 
 (function scopeWrapper($) {
     var signinUrl = 'signin.html';
@@ -12,12 +12,6 @@ var Enigma = window.Enigma || {};
 
     var userPool;
 
-    if (!(_config.cognito.userPoolId &&
-          _config.cognito.userPoolClientId &&
-          _config.cognito.region)) {
-        $('#noCognitoMessage').show();
-        return;
-    }
 
     userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
