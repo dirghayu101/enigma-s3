@@ -1,1 +1,3 @@
-console.log("JS working from error.js!")
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Error page loaded");
+});

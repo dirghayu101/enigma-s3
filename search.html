@@ -1,21 +1,63 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/search.css">
-    <script src="/js/search.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enigma - Search</title>
- </head>
- <body>
+    <style>
+        #signout-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        #signout-button {
+            padding: 10px 20px;
+            background: #e74c3c;
+            color: #ecf0f1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #signout-button:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="signout-container">
+        <button id="signout-button">Sign Out</button>
+    </div>
     <form action="" class="search-bar">
         <input type="search" name="search" pattern=".*\S.*" required>
         <button class="search-btn" type="submit">
             <span>Search</span>
         </button>
     </form>
+
+    <!-- Bootstrap dependencies. -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
- </body>
- </html>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Cognito verification dependencies. -->
+    <script src="js/library/aws-cognito-sdk.min.js"></script>
+    <script src="js/library/amazon-cognito-identity.min.js"></script>
+    <script src="js/library/config.js"></script>
+    <script src="js/library/cognito-auth-user.js"></script>
+
+    <!-- Search Algorithm Dependency -->
+    <script src="js/search.js"></script>
+    <script>
+        document.getElementById('signout-button').addEventListener('click', function () {
+            Enigma.signOut();
+        });
+    </script>
+</body>
+
+</html>
