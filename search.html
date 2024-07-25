@@ -4,33 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/search.css">
+    <link rel="stylesheet" href="/css/buttons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enigma - Search</title>
-    <style>
-        #signout-container {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
-        #signout-button {
-            padding: 10px 20px;
-            background: #e74c3c;
-            color: #ecf0f1;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        #signout-button:hover {
-            background: #c0392b;
-        }
-    </style>
+    
 </head>
 
 <body>
     <div id="signout-container">
+        <button id="green-button">Insert Snippet</button>
         <button id="signout-button">Sign Out</button>
     </div>
     <form action="" class="search-bar">
@@ -53,11 +35,12 @@
 
     <!-- Search Algorithm Dependency -->
     <script src="js/search.js"></script>
+    <script src="js/buttons.js"></script>
     <script>
-        document.getElementById('signout-button').addEventListener('click', function () {
-            Enigma.signOut();
+        document.getElementById('green-button').addEventListener('click', function () {
+            window.location.href = 'insertsnip.html'
         });
     </script>
-</body>
+</body> 
 
 </html>

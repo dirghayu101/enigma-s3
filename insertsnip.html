@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert Snippet</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/buttons.css">
     <style>
         body {
             display: flex;
@@ -13,6 +15,7 @@
             height: 100vh;
             background-color: #f8f9fa;
         }
+
         form {
             width: 100%;
             max-width: 500px;
@@ -21,29 +24,12 @@
             border-radius: 5px;
             background-color: #fff;
         }
-        #signout-container {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
-        #signout-button {
-            padding: 10px 20px;
-            background: #e74c3c;
-            color: #ecf0f1;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        #signout-button:hover {
-            background: #c0392b;
-        }
     </style>
 </head>
+
 <body>
     <div id="signout-container">
+        <button id="green-button">Search</button>
         <button id="signout-button">Sign Out</button>
     </div>
     <form id="snippetForm" class="needs-validation" novalidate>
@@ -76,10 +62,12 @@
     <script src="js/library/cognito-auth-user.js"></script>
     <!-- Tagging algorithm dependency. -->
     <!-- <script src="js/insertsnip.js"></script> -->
+    <script src="js/buttons.js"></script>
     <script>
-        document.getElementById('signout-button').addEventListener('click', function () {
-            Enigma.signOut();
+        document.getElementById('green-button').addEventListener('click', function () {
+            window.location.href = 'search.html'
         });
     </script>
 </body>
+
 </html>

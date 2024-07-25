@@ -15,8 +15,6 @@ var Enigma = window.Enigma || {};
     AWSCognito.config.region = _config.cognito.region;
   }
 
-  // Enigma.signOut();
-
   Enigma.authToken = (function () {
     return new Promise(function fetchCurrentAuthToken(resolve, reject) {
       var cognitoUser = userPool.getCurrentUser();

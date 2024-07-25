@@ -1,0 +1,37 @@
+#signout-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#signout-button {
+    padding: 10px 20px;
+    background: #e74c3c;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#signout-button:hover {
+    background: #c0392b;
+}
+
+#green-button {
+    padding: 10px 20px;
+    background: #2ecc71;
+    /* Soothing green color */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#green-button:hover {
+    background: #27ae60;
+}

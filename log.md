@@ -35,8 +35,6 @@ Last:
 Task: Verify that the authentication and authorization functionality is working properly throughout your backend. Test it with signing in new users and experimenting there. Write a test lambda and try to integrate that to see if the token is passing properly and whether if it is getting verified by cognito. Get response from that test lambda on the user side after the token getting authorized by cognito middleware.
 
 # To do:
-- Create a log out button on search page. And default page is search.
-- All pages excluding the index page will look for authorization token and redirect to login page or search page.
-- Pages that don't need any modification: error.html, index.html
 - Test search algo with only one user in the database and 10 snippets.
 - In the insertsnip page, add validations for tag.
+- S3 verification of login flow functionality with cognito.
