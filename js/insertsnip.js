@@ -82,7 +82,7 @@ document
 
 const insertData = (data) => {
   document.getElementById('blue-button').style.display = "";
-  let { snippetData: snippet } = JSON.parse(data.body);
+  let { snippetData: snippet } = data;
   console.log("JSON parsed result: ", Object.keys(snippet));
   console.log("Received data keys:");
   document.getElementById("snippetForm").style.display = "none";
