@@ -1,22 +1,26 @@
+document.getElementById('blue-button').style.display = "none";
 document
   .getElementById("snippetForm")
   .addEventListener("submit", function (event) {
     event.preventDefault();
-
+    
     const commandInput = document.getElementById("command");
     const summaryInput = document.getElementById("summary");
     const tagsInput = document.getElementById("tags");
 
     const command = commandInput.value.trim();
     const summary = summaryInput.value.trim() || "";
-    const tags =
-      tagsInput.value
-        ? tagsInput.value.split(",").map((tag) => tag.trim()).filter((tag) => tag !== "")
-        : [];
+    const tags = tagsInput.value
+      ? tagsInput.value
+          .split(",")
+          .map((tag) => tag.trim())
+          .filter((tag) => tag !== "")
+      : [];
 
     const validationMessageBlock = document.querySelector(".invalid-feedback");
 
-    // Validate command
+    
+  // Validate command
     if (!command) {
       console.error("Validation Error.");
       validationMessageBlock.textContent = "Command is required.";
@@ -60,20 +64,55 @@ document
           return response.json();
         })
         .then((data) => {
-          insertData(data)
+          console.log(data);
+          insertData(data);
         })
         .catch((error) => {
           console.error("Error:", error);
-        });
+          alert("An error occurred: ", error);
+        }); 
     } catch (error) {
       console.error("Error:", error);
-      validationMessageBlock.textContent = "An error occurred. Please try again.";
+      validationMessageBlock.textContent =
+        "An error occurred. Please try again.";
       validationMessageBlock.classList.remove("invalid-feedback");
       validationMessageBlock.classList.add("text-danger");
     }
   });
 
-
-  const insertData = (data) => {
-    
-  }
+const insertData = (data) => {
+  document.getElementById('blue-button').style.display = "";
+  let { snippetData: snippet } = JSON.parse(data.body);
+  console.log("JSON parsed result: ", Object.keys(snippet));
+  console.log("Received data keys:");
+  document.getElementById("snippetForm").style.display = "none";
+  const container = document.getElementById("snippet-container");
+  container.innerHTML = "";
+  const snippetDiv = document.createElement("div");
+  snippetDiv.classList.add("snippet");
+  const commandDiv = document.createElement("div");
+  commandDiv.classList.add("snippet-command");
+  commandDiv.textContent = snippet.command;
+  const copyButton = document.createElement("button");
+  copyButton.classList.add("copy-button");
+  copyButton.textContent = "Copy";
+  copyButton.addEventListener("click", () => {
+    navigator.clipboard.writeText(snippet.command);
+    alert("Command copied to clipboard!");
+  });
+  const summaryDiv = document.createElement("div");
+  summaryDiv.classList.add("snippet-summary");
+  summaryDiv.textContent = snippet.summary;
+  const tagsDiv = document.createElement("div");
+  tagsDiv.classList.add("snippet-tags");
+  snippet.tagArray.forEach((tag) => {
+    const tagSpan = document.createElement("span");
+    tagSpan.textContent = tag;
+    tagsDiv.appendChild(tagSpan);
+  });
+  commandDiv.appendChild(copyButton);
+  snippetDiv.appendChild(commandDiv);
+  snippetDiv.appendChild(summaryDiv);
+  snippetDiv.appendChild(tagsDiv);
+  container.appendChild(snippetDiv);
+};
