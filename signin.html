@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -7,8 +8,36 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+        }
+
+        .navbar button {
+            color: #ffffff;
+            background-color: #4CAF50;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
+
 <body>
+    <div class="navbar">
+        <a href="signup.html">
+            <button id="registerButton">Register</button>
+        </a>
+    </div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -20,11 +49,13 @@
                         <form id="signinForm">
                             <div class="form-group">
                                 <label for="emailInputSignin">Email</label>
-                                <input type="email" class="form-control" id="emailInputSignin" placeholder="Email" required>
+                                <input type="email" class="form-control" id="emailInputSignin" placeholder="Email"
+                                    required>
                             </div>
                             <div class="form-group">
                                 <label for="passwordInputSignin">Password</label>
-                                <input type="password" class="form-control" id="passwordInputSignin" placeholder="Password" required>
+                                <input type="password" class="form-control" id="passwordInputSignin"
+                                    placeholder="Password" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Sign in</button>
                         </form>
@@ -44,4 +75,5 @@
     <script src="js/library/config.js"></script>
     <script src="js/cognito-auth.js"></script>
 </body>
+
 </html>

@@ -7,8 +7,35 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+        }
+
+        .navbar button {
+            color: #ffffff;
+            background-color: #095bc0;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar button:hover {
+            background-color: #095bc06d;
+        }
+    </style>
 </head>
 <body>
+    <div class="navbar">
+        <a href="signin.html">
+            <button id="registerButton">Log In</button>
+        </a>
+    </div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
